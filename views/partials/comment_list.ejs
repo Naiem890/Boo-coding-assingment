@@ -1,3 +1,66 @@
+<%
+const comments = [
+  {
+    id: "1",
+    title: `He’s definitely an INTP`,
+    badges: {
+      mbti: "INTP",
+      enneagram: "8w9",
+      zodiac: "Cancer",
+    },
+    description: `He thinks about future, Ni. He is productive too, Te. That makes him INTJ ^_^
+      lmao ok guys sure.
+      Let me make it easy for you guys:
+      The Arguments - Ti vs Te & Ne vs Ni.
+      1 - Ti vs Te:
+      • Ti: Elon wants to create new things that don't exists, no one imagines. He tends to assume that the information he has is true to come to the conclusion.
+      • Te: Te is mostly based on facts & evidence i.e the things which have been working for so long, on the ways everyone can trust/rely on.
+      Elon Musk is an obvious Ti user.
+      2 - Ne vs Ni:
+      • Ne: His ideas are divergent; He does not stick to one idea, he is constantly thinking about other possible outcomes.
+      • Ni: The individual who uses Ni has a clear vision about his idea & decides to follow it right away.
+      ~ Also, some other arguments I have:
+      - INTJs are serious people, INTPs are more flexible i.e Elon Musk is an "easy come, easy go" type of person, His Fe is so obvious, he does not takes jokes or anything personally.
+      - Elon Musk is just a productive INTP who gets things done, that's why people think of him as an INTJ.`,
+    commenter: {
+      name: "Daniel Craig",
+      image: "https://i.ibb.co/GTnFftZ/Elon-Musk.png",
+    },
+    like: 79
+  },
+  {
+    id: "1",
+    title: `He’s definitely an INTP`,
+    badges: {
+      mbti: "INTP",
+      enneagram: "8w9",
+      zodiac: "Cancer",
+    },
+    description: `He thinks about future, Ni. He is productive too, Te. That makes him INTJ ^_^
+      lmao ok guys sure.
+      Let me make it easy for you guys:
+      The Arguments - Ti vs Te & Ne vs Ni.
+      1 - Ti vs Te:
+      • Ti: Elon wants to create new things that don't exists, no one imagines. He tends to assume that the information he has is true to come to the conclusion.
+      • Te: Te is mostly based on facts & evidence i.e the things which have been working for so long, on the ways everyone can trust/rely on.
+      Elon Musk is an obvious Ti user.
+      2 - Ne vs Ni:
+      • Ne: His ideas are divergent; He does not stick to one idea, he is constantly thinking about other possible outcomes.
+      • Ni: The individual who uses Ni has a clear vision about his idea & decides to follow it right away.
+      ~ Also, some other arguments I have:
+      - INTJs are serious people, INTPs are more flexible i.e Elon Musk is an "easy come, easy go" type of person, His Fe is so obvious, he does not takes jokes or anything personally.
+      - Elon Musk is just a productive INTP who gets things done, that's why people think of him as an INTJ.`,
+    commenter: {
+      name: "Daniel Craig",
+      image: "https://i.ibb.co/GTnFftZ/Elon-Musk.png",
+    },
+    like: 79
+  }
+];
+%>
 <div class="comments">
-    <%- include('comment_card.ejs') %>
-  </div>
+  <% comments.forEach(function(c) { %>
+    <%- include('comment_card.ejs',{comment: c}) %>
+  <% }); %>
+  
+</div>
