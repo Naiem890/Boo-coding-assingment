@@ -1,6 +1,7 @@
 <style>
   .site-wrapper {
     font-family: -apple-system, system-ui, BlinkMacSystemFont;
+    font-size: 18px;
   }
   h4 {
     font-family: -apple-system, system-ui, BlinkMacSystemFont;
@@ -22,6 +23,13 @@
   li {
     display:flex;
     align-items: center;
+  }
+  button{
+    border: 1px solid transparent; 
+  }
+  img{
+    max-width: 100%;
+    display: block;
   }
   .content-wrapper {
     padding-top: 2.5vmax !important;
@@ -60,19 +68,19 @@
     display: inline-block;
     font-weight: 400;
   }.picture {
-    box-shadow: 0px 0px 5px rgba(0,0,0,0.6);
-    -moz-box-shadow: 0px 0px 5px rgba(0,0,0,0.6);
-    -webkit-box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
-    -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.6);
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.15);
+    -moz-box-shadow: 0px 0px 5px rgba(0,0,0,0.15);
+    -webkit-box-shadow: 0px 0px 5px rgba(0,0,0,0.15);
+    -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.15);
     border-radius: 50%;
     width: 75%;
     display: block;
     margin: auto;
   }.trait {
-    box-shadow: 0px 0px 5px rgba(0,0,0,0.6);
-    -moz-box-shadow: 0px 0px 5px rgba(0,0,0,0.6);
-    -webkit-box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
-    -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.6);
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.15);
+    -moz-box-shadow: 0px 0px 5px rgba(0,0,0,0.15);
+    -webkit-box-shadow: 0px 0px 5px rgba(0,0,0,0.15);
+    -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.15);
     border-radius: 20px;
     margin: 0em 1em 1em 0;
     padding: 0.5em 0 0.5em 0;
@@ -84,7 +92,7 @@
     margin-bottom: 0.25em;
     font-size: 1.8em;
   }.categories {
-    box-shadow:0px 0px 15px rgba(0, 0, 0, 0.25);
+    box-shadow:0px 0px 15px rgba(0, 0, 0, 0.15);
     background-color:rgba(255, 255, 255, 1);
     padding: 0.5em 1em 0.5em 1em;
     margin-right: 2em;
@@ -134,10 +142,10 @@
     margin-bottom: 0.75em;
     float: left;
   }.profile-card-photo {
-    box-shadow: 0px 0px 5px rgba(0,0,0,0.6);
-    -moz-box-shadow: 0px 0px 5px rgba(0,0,0,0.6);
-    -webkit-box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
-    -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.6);
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.15);
+    -moz-box-shadow: 0px 0px 5px rgba(0,0,0,0.15);
+    -webkit-box-shadow: 0px 0px 5px rgba(0,0,0,0.15);
+    -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.15);
     border-radius: 50%;
     position: absolute;
     padding: 0;
@@ -149,7 +157,7 @@
     object-fit: cover;
     aspect-ratio: 1/1;
   }.profile-card {
-    box-shadow:0px 0px 15px rgba(0, 0, 0, 0.25);
+    box-shadow:0px 0px 15px rgba(0, 0, 0, 0.15);
     background-color:rgba(255, 255, 255, 1);
     padding: 7em 1em 1em 1em;
     border-top-left-radius:25px;
@@ -218,6 +226,107 @@
   }
   #categories-list-mobile {
     display: none;
+  }
+
+  .comment-section{
+    font-size: 18px;
+  }
+  .comment-section__header{
+    display:flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .comment-section__button{
+    background-color: #4EDCD8;
+    padding:20px 46px;
+    font-weight: 700;
+    color:#fff;
+    border-radius: 50px;
+  }
+
+  .comment-section__filter{
+    display: flex;
+    gap:34px;
+  }
+  .filter__link{
+    letter-spacing: 0.05em;
+  }
+  .filter__link--active{
+    color:#4EDCD8;
+    font-weight: 700;
+  }
+
+  .comment-section__sorting{
+    display: flex;
+    gap: 14px;
+    margin-top: 16px;
+  }
+  .sorting_button{
+    background: #FFFFFF;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 50px;
+    padding:10px 24px;
+    font-weight: 400;
+  }
+  .sorting_button--active{
+    background: #4EDCD8;
+    box-shadow: 0px 0px 10px #4EDCD8;
+    border-radius: 50px;
+    font-weight: 700;
+    color: #fff;
+  }
+  
+  .comments{
+    margin-top: 43px;
+    display: flex;
+    gap: 43px;
+  }
+  .comments__card{
+    background: #FFFFFF;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 50px;
+    padding: 32px;
+  }
+  .comments__card__profile{
+    display: flex;
+    gap: 16px;
+  }
+  .comments__card__avatar{
+    max-width: 92px;
+    height: 92px;
+  }
+  .comment__card__name{
+    margin-top: 10px;
+  }
+  .comment__card__title{
+    margin: -20px 0px;
+  }
+  .comment__card__text{
+    /* font-size: 16px; */
+  }
+  .comment__card__action{
+    margin-top: 12px;
+    margin-bottom: -10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .comment__card__like{
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    background-size: cover;
+    cursor: pointer;
+    background-image: url("https://boo.world/static/like_white.svg");
+    transition: all 0.1s ease-in;
+  }
+  .comment__card__like:hover,
+  .comment__card__like:focus,
+  .comment__card__like.comment__card__like--active{
+    background-image: url("https://boo.world/static/like_blue.svg");
+  }
+  .comment__card__like-count{
+    color: #A1A1A1;
   }
 
   @media only screen and (max-width: 1500px) {
