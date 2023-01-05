@@ -21,29 +21,6 @@
       <button class="sorting_button sorting_button--active">best</button>
       <button class="sorting_button">recent</button>
     </div>
-    <div class="comment-section__voting-box">
-      <div class="comments__card">
-        <div class="comments__card__profile">
-          <div class="comments__card__avatar">
-            <img src="https://i.ibb.co/GTnFftZ/Elon-Musk.png" alt="">
-          </div>
-          <div class="comment__card__name">
-            Daniel Craig
-          </div>
-        </div>
-        <form action="">
-          <input class="voting-box__title" type="text" placeholder="Title">
-          <textarea class="voting-box__text" name="" id="" cols="30" rows="3"  placeholder="Share your typology reasoning by commenting here"></textarea>
-          <div class="voting-box__action">
-            <button class="voting-box__submit-btn" type="submit">
-              <svg xmlns="http://www.w3.org/2000/svg" 
-              viewBox="0 0 24 24" fill="#c4c4c4" width="24" height="24">
-                <path d="M3.478 2.405a.75.75 0 00-.926.94l2.432 7.905H13.5a.75.75 0 010 1.5H4.984l-2.432 7.905a.75.75 0 00.926.94 60.519 60.519 0 0018.445-8.986.75.75 0 000-1.218A60.517 60.517 0 003.478 2.405z" />
-              </svg>
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
+    <%- include('comment_input-box.ejs') %>
     <%- include('comment_list.ejs') %>
 </div>

@@ -102,6 +102,22 @@ const categories = [
 ];
 
 module.exports = function () {
+  router.post('/comments', (req, res) => {
+    const newComment = {
+      id: comments.length.toString(),
+      title: req.body.title,
+      badges:{},
+      description: req.body.description,
+      commenter: {
+        name: "Daniel Craig",
+        image: "https://i.ibb.co/GTnFftZ/Elon-Musk.png",
+      },
+      like: 0
+    };
+    comments.push(newComment);
+    console.log(newComment);
+    res.redirect('/');
+  });
   router.get("/*", function (req, res, next) {
     res.render("profile_template", {
       profile: profiles[0],
