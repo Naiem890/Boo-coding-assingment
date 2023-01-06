@@ -7,6 +7,9 @@ const port =  process.env.PORT || 5000;
 // Calling the express.json() method for parsing
 app.use(express.urlencoded({ extended: true }));
 
+// set the public folder to all static assets
+app.use(express.static('public'));
+
 // set the view engine to ejs
 app.set('view engine', 'ejs');
 
