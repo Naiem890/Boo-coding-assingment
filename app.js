@@ -14,7 +14,10 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
 // routes
+app.use('/comments', require('./routes/comments')());
 app.use('/', require('./routes/profile')());
+
+
 
 // start server
 const server = app.listen(port);
