@@ -14,20 +14,20 @@
       <form action="/comments" method="POST">
         <input name="title" class="voting-box__title" type="text" placeholder="Title">
         <div class="voting-box__tags">
-          <select class="voting-box__mbti" name="mbti" id="mbti">
-            <option value="">Select an option</option>
+          <select class="voting-box__mbti btn-capsule" name="mbti" id="mbti">
+            <option value="">MBTI</option>
             <% options.mbti.forEach(function(m) { %>
               <option value="<%= m %>"><%= m %></option>
             <% }); %>
           </select>
-          <select class="voting-box__enneagram" name="enneagram" id="enneagram">
-            <option value="">Select an option</option>
+          <select class="voting-box__enneagram btn-capsule" name="enneagram" id="enneagram">
+            <option value="">Enneagram</option>
             <% options.enneagram.forEach(function(m) { %>
-              <option value="<%= m %>"><%= m %></option>
+              <option value="<%= m %>"><%= m.split('w')[0]%> <span class="wing-icon"></span> <%= m.split('w')[1]%></option>
             <% }); %>
           </select>
-          <select class="voting-box__zodiac" name="zodiac" id="zodiac">
-            <option value="">Select an option</option>
+          <select class="voting-box__zodiac btn-capsule" name="zodiac" id="zodiac">
+            <option value="">Zodiac</option>
             <% options.zodiac.forEach(function(m) { %>
               <option value="<%= m %>"><%= m %></option>
             <% }); %>

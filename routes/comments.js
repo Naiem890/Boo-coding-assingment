@@ -24,7 +24,7 @@ module.exports = function () {
             like: 0
         };
         if(newComment.id && newComment.title && newComment.tags 
-        && newComment.description && newComment.commenter && newComment.like){
+        && newComment.description && newComment.commenter && newComment.hasOwnProperty("like")){
             comments.push(newComment);
         }
         res.redirect('/');
@@ -53,6 +53,7 @@ module.exports = function () {
                 return comment;
             }else{
                 comment.liked = !comment.liked
+                comment.like = comment.liked ? (comment.like+1) : (comment.like-1)
                 return comment;
             }
         })
