@@ -9,7 +9,7 @@ module.exports = function () {
   router.get("/", function (req, res, next) {
     res.render("profile_template", {
       profile: profiles[0],
-      comments: [],
+      comments: comments,
       categories: categories
     });
   });

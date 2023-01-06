@@ -1,27 +1,27 @@
 <div class="comment-section">
     <div class="comment-section__header">
       <h3>Comments</h3>
-      <button class="comment-section__button button">VOTE/COMMENT</button>
+      <button onclick="toggleVisibility('voting-box')" class="comment-section__button button">VOTE/COMMENT</button>
     </div>
     <ul class="comment-section__filter">
       <li>
-        <a class="filter__link filter__link--active" href="/comments/?category=all">All</a>
+        <button onclick="handleFilterToggle(this)" data-filter="all" class="filter__link filter__link--active" >All</button>
       </li>
       <li>
-        <a class="filter__link" href="/comments/?category=mbti">MBTI</a>
+        <button onclick="handleFilterToggle(this)" data-filter="mbti" class="filter__link" >MBTI</button>
       </li>
       <li>
-        <a class="filter__link" href="/comments/?category=enneagram">Enneagram</a>
+        <button onclick="handleFilterToggle(this)" data-filter="enneagram" class="filter__link" >Enneagram</button>
       </li>
       <li>
-        <a class="filter__link" href="/comments/?category=zodiac">Zodiac</a>
+        <button onclick="handleFilterToggle(this)" data-filter="zodiac" class="filter__link" >Zodiac</button>
       </li>
     </ul>
     <div class="comment-section__sorting">
-      <button class="sorting_button sorting__button--active btn-capsule">
+      <button onclick="handleSortToggle(this)" data-sort="best_match" class="sorting__button sorting__button--active btn-capsule">
         best
       </button>
-      <button class="sorting__button btn-capsule">recent</button>
+      <button onclick="handleSortToggle(this)" data-sort="recent" class="sorting__button btn-capsule">recent</button>
     </div>
     <%- include('comment_input-box.ejs') %>
     <%- include('comment_list.ejs') %>

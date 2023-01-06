@@ -231,6 +231,11 @@
 
 /* CSS For Comment Section */
 
+  .hidden {
+      display: none;
+      transition: all 0.2s ease-in;
+  }
+
   .btn-capsule{
     border-radius: 50px;
     padding: 8px 24px;
@@ -257,7 +262,7 @@
 
   .comment-section__filter{
     display: flex;
-    gap:34px;
+    gap: 34px;
   }
   .filter__link{
     letter-spacing: 0.05em;
@@ -266,13 +271,14 @@
   .filter__link--active,
   .filter__link.active{
     color:#4EDCD8;
-    font-weight: 700;
+    /* font-weight: 700; */
+    /* letter-spacing: -0.05em; */
   }
 
   .comment-section__sorting{
     display: flex;
     gap: 14px;
-    margin-top: 16px;
+    margin-top: 24px;
   }
   .sorting__button{
     background: #FFFFFF;

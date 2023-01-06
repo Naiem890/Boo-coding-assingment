@@ -206,7 +206,102 @@
 </script>
 
 <script>
-  function fetchComment(query){
-    console.log(query)
+  function toggleVisibility(idName) {
+    const containerBox = document.getElementById(idName);
+    if (containerBox.classList.contains('hidden')) {
+      containerBox.classList.remove('hidden');
+    } else {
+      containerBox.classList.add('hidden');
+    }
+  }
+
+  function handleFilterToggle(event){
+    const filterButtons = document.querySelectorAll(".filter__link");
+    for(const button of filterButtons){
+      if(button.classList.contains('filter__link--active')){
+        button.classList.remove('filter__link--active')
+      }
+    }
+    event.classList.add("filter__link--active")
+    fetchComment();
+  }
+
+  function handleSortToggle(event){
+    const sortButtons = document.querySelectorAll(".sorting__button");
+    console.log(sortButtons)
+    for(const button of sortButtons){
+      if(button.classList.contains('sorting__button--active')){
+        button.classList.remove('sorting__button--active')
+      }
+    }
+    event.classList.add("sorting__button--active")
+    fetchComment();
+  }
+
+  function fetchComment(){
+    const filter = document.querySelector(".filter__link--active").getAttribute("data-filter");
+    const sort = document.querySelector(".sorting__button--active").getAttribute("data-sort");
+
+    fetch(`http://localhost:5000/comments?category=${filter}&sortBy=${sort}`)
+    .then(data => data.json())
+    .then(res => {
+      renderComments(res);
+    })
+  }
+
+  function renderComments(comments){
+    const commentsContainer = document.querySelector(".comments")
+    let commentHTML = ''
+    comments.forEach(comment=>{
+      commentHTML += `
+      <div class="comments__card">
+        <div class="comments__card__profile">
+          <div class="comments__card__avatar">
+            <img src="${comment.commenter.image}" alt="">
+          </div>
+          <div class="comment__card__name">
+            ${comment.commenter.name}
+          </div>
+        </div>
+        <div class="comment__card__title">
+          <h4>${comment.title}</h4>
+        </div>
+        <div class="comment__card__tags">
+          ${
+            comment.tags?.mbti ?
+            `<div class="comment__card__MBTI btn-capsule">
+              ${comment.tags.mbti}
+            </div>`:""
+          }
+          ${
+            comment.tags?.enneagram ?
+            `<div class="comment__card__Enneagram btn-capsule">
+              <span> 
+                ${comment.tags.enneagram.split("w")[0]} 
+              </span>
+              <img src="/static/wing.png" alt="wing icon"/>
+              <span> 
+                ${comment.tags.enneagram.split("w")[1]}
+              </span>
+            </div>`:""
+          }
+          ${
+            comment.tags?.zodiac ? 
+            `<div class="comment__card__Zodiac btn-capsule">
+              ${comment.tags.zodiac}
+            </div>`:""
+          }
+        </div>
+        <div class="comment__card__text">
+          ${comment.description}
+        </div>
+        <div class="comment__card__action">
+          <span class="comment__card__like">
+          </span>
+          <span class="comment__card__like-count">${comment.like}</span>
+        </div>
+      </div>`
+    })
+    commentsContainer.innerHTML=commentHTML
   }
 </script>

@@ -34,14 +34,14 @@ module.exports = function () {
         if(category && category!=='all'){
             filteredComment = filteredComment.filter(c=>c.tags[category])
         }
-        // if(sortBy){
-
-        // }
-        res.render("profile_template", {
-            profile: profiles[0],
-            comments: filteredComment,
-            categories: categories
-          });
+        if(sortBy){
+            if(sortBy=="best_match"){
+                filteredComment = filteredComment.sort((a,b)=>b.like-a.like)
+            }else if(sortBy=="recent"){
+                filteredComment = filteredComment.sort((a,b)=>b.id-a.id)
+            }
+        }
+        res.json(filteredComment)
     })
     return router;
 };

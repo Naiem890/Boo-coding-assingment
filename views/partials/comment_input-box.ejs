@@ -5,7 +5,7 @@
     zodiac :  ['Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra', 'Scorpio', 'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces']
   }
 %>
-<div class="comment-section__voting-box">
+<div id="voting-box" class="comment-section__voting-box hidden">
     <div class="comments__card">
       <%- include('comment_profile.ejs', {
           name: "Daniel Craig",
@@ -33,7 +33,7 @@
             <% }); %>
           </select>
         </div>
-        <textarea name="description" class="voting-box__text" name="" id="" cols="30" rows="3"  placeholder="Share your typology reasoning by commenting here"></textarea>
+        <textarea name="description" class="voting-box__text" name="" id="" cols="30" rows="2"  placeholder="Share your typology reasoning by commenting here"></textarea>
         <div class="voting-box__action">
           <button class="voting-box__submit-btn" type="submit">
             <svg xmlns="http://www.w3.org/2000/svg" 
