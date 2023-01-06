@@ -90,10 +90,15 @@ const categories = [
 
 module.exports = function () {
   router.post('/comments', (req, res) => {
+    const {mbti,enneagram,zodiac} = req.body
     const newComment = {
       id: comments.length.toString(),
       title: req.body.title,
-      badges:{},
+      tags:{
+        mbti,
+        enneagram,
+        zodiac
+      },
       description: req.body.description,
       commenter: {
         name: "Daniel Craig",
@@ -102,6 +107,7 @@ module.exports = function () {
       like: 0
     };
     comments.push(newComment);
+    console.log(newComment)
     res.redirect('/');
   });
   router.get("/*", function (req, res, next) {
