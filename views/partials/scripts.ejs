@@ -296,12 +296,22 @@
           ${comment.description}
         </div>
         <div class="comment__card__action">
-          <span class="comment__card__like">
+          <span onclick="${handleLikeToggle(this,comment.id)}" class='comment__card__like ${comment.liked? "comment__card__like--active" : ""}'>
           </span>
           <span class="comment__card__like-count">${comment.like}</span>
         </div>
       </div>`
     })
     commentsContainer.innerHTML=commentHTML
+  }
+
+  function handleLikeToggle(event,id){
+    
+    fetch(`http://localhost:5000/comments/like/${id}`,{
+      method: 'POST'
+    }).then(res => res.json())
+    .then( data=> {
+      event.classList.toggle("comment__card__like--active");
+    })
   }
 </script>

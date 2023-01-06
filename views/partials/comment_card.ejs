@@ -33,8 +33,13 @@
       <%= comment.description %>
     </div>
     <div class="comment__card__action">
-      <span class="comment__card__like">
+      <% if (comment.liked) {%>
+      <span onclick="handleLikeToggle(this,'<%= comment.id %>')" class="comment__card__like comment__card__like--active">
       </span>
+      <% } else {%>
+        <span onclick="handleLikeToggle(this,'<%= comment.id %>')" class="comment__card__like">
+        </span>
+      <% } %>
       <span class="comment__card__like-count"><%= comment.like %></span>
     </div>
   </div>

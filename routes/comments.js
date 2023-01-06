@@ -30,7 +30,7 @@ module.exports = function () {
     router.get('/',function(req,res){
         const {category,sortBy} = req.query;
         let filteredComment = JSON.parse(JSON.stringify(comments));
-        console.log(filteredComment,category,sortBy)
+        // console.log(filteredComment,category,sortBy)
         if(category && category!=='all'){
             filteredComment = filteredComment.filter(c=>c.tags[category])
         }
@@ -41,6 +41,19 @@ module.exports = function () {
                 filteredComment = filteredComment.sort((a,b)=>b.id-a.id)
             }
         }
+        res.json(filteredComment)
+    })
+    router.post('/like/:id',function(req,res){
+        const {id} = req.params;
+        let filteredComment = JSON.parse(JSON.stringify(comments));
+        filteredComment = filteredComment.map(comment=>{
+            if(comment.id!==id){
+                return comment;
+            }else{
+                comment.liked = !comment.liked
+                return comment;
+            }
+        })
         res.json(filteredComment)
     })
     return router;
