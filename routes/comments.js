@@ -23,8 +23,10 @@ module.exports = function () {
             },
             like: 0
         };
-        
-        comments.push(newComment);
+        if(newComment.id && newComment.title && newComment.tags 
+        && newComment.description && newComment.commenter && newComment.like){
+            comments.push(newComment);
+        }
         res.redirect('/');
     });
     router.get('/',function(req,res){
