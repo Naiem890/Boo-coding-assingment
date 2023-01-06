@@ -1,13 +1,9 @@
 <div class="comment-section__voting-box">
     <div class="comments__card">
-      <div class="comments__card__profile">
-        <div class="comments__card__avatar">
-          <img src="https://i.ibb.co/GTnFftZ/Elon-Musk.png" alt="">
-        </div>
-        <div class="comment__card__name">
-          Daniel Craig
-        </div>
-      </div>
+      <% -include('comment_profile.ejs', {
+          name: "Daniel Craig",
+          image: "/static/Elon_musk.png"
+      }) %>
       <form action="/comments" method="POST">
         <input name="title" class="voting-box__title" type="text" placeholder="Title">
         <textarea name="description" class="voting-box__text" name="" id="" cols="30" rows="3"  placeholder="Share your typology reasoning by commenting here"></textarea>

@@ -1,12 +1,8 @@
 <div class="comments__card">
-    <div class="comments__card__profile">
-      <div class="comments__card__avatar">
-        <img src="<%= comment.commenter.image %>" alt="">
-      </div>
-      <div class="comment__card__name">
-        <%= comment.commenter.name %>
-      </div>
-    </div>
+    <%- include('comment_profile.ejs', {
+        name: comment.commenter.name,
+        image: comment.commenter.image
+    }) %>
     <div class="comment__card__title">
       <h4><%= comment.title %></h4>
     </div>
