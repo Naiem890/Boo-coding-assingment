@@ -5,7 +5,7 @@ const router = express.Router();
 
 const profiles = [
   {
-    id: 1,
+    id: "1",
     name: "A Martinez",
     description: `Elon Reeve Musk FRS (/ˈiːlɒn/; born June 28, 1971) is a technology entrepreneur, investor, and engineer. He holds South African, Canadian, and U.S. citizenship and is the founder, CEO, and lead designer of SpaceX; co-founder, CEO, and product architect of Tesla, Inc.; co-founder and CEO of Neuralink; founder of The Boring Company; co-founder and co-chairman of OpenAI; and co-founder of PayPal. As of February 2021, Musk's net worth stands at $184 billion, making him the 2nd richest person in the world.`,
     mbti: "ISFJ",
@@ -25,9 +25,9 @@ const profiles = [
 ];
 const comments = [
   {
-    id: "1",
+    id: "0",
     title: `He’s definitely an INTP`,
-    badges: {
+    tags: {
       mbti: "INTP",
       enneagram: "8w9",
       zodiac: "Cancer",
@@ -48,38 +48,25 @@ const comments = [
       - Elon Musk is just a productive INTP who gets things done, that's why people think of him as an INTJ.`,
     commenter: {
       name: "Daniel Craig",
-      image: "https://i.ibb.co/GTnFftZ/Elon-Musk.png",
+      image: "/static/commenter.png",
     },
     like: 79
   },
   {
     id: "1",
-    title: `He’s definitely an INTP`,
-    badges: {
-      mbti: "INTP",
-      enneagram: "8w9",
-      zodiac: "Cancer",
+    title: `Just not an INTJ`,
+    tags: {
+      mbti: "INTP"
     },
-    description: `He thinks about future, Ni. He is productive too, Te. That makes him INTJ ^_^
-      lmao ok guys sure.
-      Let me make it easy for you guys:
-      The Arguments - Ti vs Te & Ne vs Ni.
-      1 - Ti vs Te:
-      • Ti: Elon wants to create new things that don't exists, no one imagines. He tends to assume that the information he has is true to come to the conclusion.
-      • Te: Te is mostly based on facts & evidence i.e the things which have been working for so long, on the ways everyone can trust/rely on.
-      Elon Musk is an obvious Ti user.
-      2 - Ne vs Ni:
-      • Ne: His ideas are divergent; He does not stick to one idea, he is constantly thinking about other possible outcomes.
-      • Ni: The individual who uses Ni has a clear vision about his idea & decides to follow it right away.
-      ~ Also, some other arguments I have:
-      - INTJs are serious people, INTPs are more flexible i.e Elon Musk is an "easy come, easy go" type of person, His Fe is so obvious, he does not takes jokes or anything personally.
-      - Elon Musk is just a productive INTP who gets things done, that's why people think of him as an INTJ.`,
+    description: `I want Elon Musk to be an INTJ more than anyone, but he isn't...
+    People think that Elon has Ni because of his long-term vision for humanity becoming a multi-planetary species, but the way he got to this conclusion is through Ti-Ne - by envisioning all the possibilities and choosing the Ti path the makes the most sense.
+    Elon's mannerisms, jokes, are very based on Ne. He has so much Ne that I even considered ENTP, but INTP is the most likely choice; watch the video if you're still not convinced.`,
     commenter: {
       name: "Daniel Craig",
-      image: "https://i.ibb.co/GTnFftZ/Elon-Musk.png",
+      image: "/static/commenter.png",
     },
-    like: 79
-  }
+    like: 40
+  },
 ];
 const categories = [
   { id: "1", name: "Anime", url: "#" },
@@ -110,12 +97,11 @@ module.exports = function () {
       description: req.body.description,
       commenter: {
         name: "Daniel Craig",
-        image: "https://i.ibb.co/GTnFftZ/Elon-Musk.png",
+        image: "/static/Elon_musk.png",
       },
       like: 0
     };
     comments.push(newComment);
-    console.log(newComment);
     res.redirect('/');
   });
   router.get("/*", function (req, res, next) {
