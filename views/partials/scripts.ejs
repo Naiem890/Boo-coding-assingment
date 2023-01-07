@@ -309,7 +309,7 @@
           ${comment.description}
         </div>
         <div class="comment__card__action">
-          <span id="comment_icon-${comment.id}" onclick="${handleLikeToggle(comment.id)}" class='comment__card__like ${comment.liked? "comment__card__like--active" : ""}'>
+          <span id="comment_icon-${comment.id}" onclick="handleLikeToggle('${comment.id}')" class='comment__card__like ${comment.liked? "comment__card__like--active" : ""}'>
           </span>
           <span id="comment_like-${comment.id}" class="comment__card__like-count">${comment.like}</span>
         </div>
