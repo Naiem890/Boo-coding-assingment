@@ -206,6 +206,9 @@
 </script>
 
 <script>
+
+  const APP_BASE_URL=`https://boo-coding-assingment-production.up.railway.app`;
+
   function toggleVisibility(idName) {
     const containerBox = document.getElementById(idName);
     if (containerBox.classList.contains('hidden')) {
@@ -242,7 +245,7 @@
     const filter = document.querySelector(".filter__link--active").getAttribute("data-filter");
     const sort = document.querySelector(".sorting__button--active").getAttribute("data-sort");
 
-    fetch(`http://localhost:5000/comments?category=${filter}&sortBy=${sort}`)
+    fetch(`${APP_BASE_URL}/comments?category=${filter}&sortBy=${sort}`)
     .then(data => data.json())
     .then(res => {
       renderComments(res);
@@ -251,7 +254,7 @@
 
   function handleLikeToggle(id){
     
-    fetch(`http://localhost:5000/comments/like/${id}`,{
+    fetch(`${APP_BASE_URL}/comments/like/${id}`,{
       method: 'POST'
     }).then(res => res.json())
     .then( data=> {
